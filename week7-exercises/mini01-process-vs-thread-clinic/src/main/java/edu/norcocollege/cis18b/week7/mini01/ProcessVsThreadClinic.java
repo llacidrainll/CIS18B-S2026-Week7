@@ -29,8 +29,16 @@ public class ProcessVsThreadClinic {
                 "Sort one in-memory list and print it immediately.",
                 Recommendation.NOT_MEANINGFULLY_CONCURRENT,
                 "There is only one task, so concurrency adds complexity without benefit."
-            )
+            ),
+            new Scenario(
+                "music-streaming-playback",
+                "Play music while the user browses playlists.",
+                Recommendation.THREAD,
+                "Threads allow the application to play audio in the background while sharing memory with the UI."
+            ) 
+            
         );
+        
     }
 
     record Scenario(String name, String description, Recommendation recommendation, String reasoning) {
